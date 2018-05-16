@@ -1,7 +1,9 @@
-package com.akkademy.msg
+package com.akkademy
 
 import akka.actor.{Actor, ActorIdentity, Identify, Stash}
 import akka.event.Logging
+import com.akkademy.msg.AskStateRequest
+
 
 class IdentifySwapClient(remoteDBPath:String) extends Actor with Stash{
 
@@ -9,6 +11,7 @@ class IdentifySwapClient(remoteDBPath:String) extends Actor with Stash{
 
   override def preStart:Unit={
     context.actorSelection(remoteDBPath) ! Identify(remoteDBPath)
+
   }
 
   override def receive: Receive = {

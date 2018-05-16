@@ -3,7 +3,7 @@ package com.akkademy
 import akka.actor.{ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
-import com.akkademy.msg.{AskStateRequest, IdentifySwapClient}
+import com.akkademy.msg.AskStateRequest
 import org.scalatest.{FunSpecLike, Matchers}
 
 import scala.concurrent.Await
