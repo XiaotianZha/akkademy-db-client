@@ -13,11 +13,9 @@ class IdentifyClient(remoteDBPath:String) extends Actor with ActorLogging{
   override def receive: Receive = {
     case ActorIdentity(p,None) =>
       log.info("remoteDB not available")
-//      sender() ! "remoteDB not available"
       state =false
     case ActorIdentity(p,Some(remoteRef)) =>
       log.info("remoteDB  available")
-//      sender() ! "remoteDB  available"
       state = true
     case AskStateRequest =>
       sender() ! s"remoteDB available flag ${state}"
