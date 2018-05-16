@@ -26,6 +26,7 @@ class IdentifyHeartbeatClient (remoteDBPath:String) extends Actor{
       tryTimes=tryTimes+1
       if (tryTimes>=2){
         log.info(s"lost heartbeat ${tryTimes}s, need restart")
+        //Restart will not reset tryTimes
         tryTimes = 0
         Restart
       }
