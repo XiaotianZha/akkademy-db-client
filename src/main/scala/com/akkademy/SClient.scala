@@ -3,7 +3,7 @@ package com.akkademy
 import akka.actor.{ActorSelection, ActorSystem}
 import akka.util.Timeout
 import akka.pattern.ask
-import com.akkademy.message.{Delete, GetRequest, SetIfNotExistsRequest, SetRequest}
+import com.akkademy.message.{DeleteRequest, GetRequest, SetIfNotExistsRequest, SetRequest}
 
 import scala.concurrent.duration._
 
@@ -25,7 +25,7 @@ class SClient(remoteAddress:String) {
   }
 
   def delete(key:String) ={
-    remoteDB ? Delete(key)
+    remoteDB ? DeleteRequest(key)
   }
 
 }
